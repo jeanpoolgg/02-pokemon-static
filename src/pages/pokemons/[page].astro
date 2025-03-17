@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
 import MainLayout from "../../layouts/MainLayout.astro";
+import Title from "src/shared/Title.astro";
 
 // Código Server Side Only - Momento de construcción BUILD TIME
 
@@ -22,7 +23,7 @@ const { page } = Astro.props;
 
 
 <MainLayout title={title}>
-	<h1 class="text-3xl">Listado de Pokémones</h1>
+	<Title>Listado de Pokémones paginados</Title>
 	<hr>
 	<section aria-label="Listado de Pokémones" class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 gap-4 mt-5" >
 		{page.data.map(({name, url}) => <PokemonCard name={name} url={url} />)}	
